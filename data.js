@@ -10,20 +10,65 @@ const PLAN = {
     source: "Personalizado a partir del Método Sparta (Floripa Calistenia)",
   },
 
-  // Principios extraídos del módulo "O TREINO ESPARTANO" (lecciones EMPURRAR + PUXAR):
-  // - Frecuencia: 2x/semana por grupo muscular para mejores resultados
-  // - Volumen: 8 a 15 series semanales por grupo (sumando todas las variaciones)
-  // - Variantes: máximo 5 variaciones del mismo patrón por rutina
-  // - Intensidad: cerca del fallo muscular ("próximo da falha")
-  // - Calidad sobre cantidad: foco en activación + variantes desafiantes
-  // - Sin barra: 3 ejercicios × 3 series por grupo
+  // Principios y filosofía extraídos directamente del Método Sparta (Floripa Calistenia, Kiwify).
+  // Las 4 categorías cubren los módulos: Mentalidade, O Treino Espartano, A Base, Corpo Saudável.
+  knowledge: {
+    mind: {
+      title: "Mentalidad",
+      icon: "🧠",
+      blurb: 'Del módulo "Mentalidade do Espartano" + "Pare de Perder Tempo".',
+      items: [
+        { icon: "🛡️", title: "Mente blindada, cuerpo blindado", text: 'Alianza inquebrable: pensamientos resistentes + cuerpo entrenado. En la armonía mente-cuerpo, la invulnerabilidad.' },
+        { icon: "⚔️", title: "Consistencia + superación diaria", text: 'Sin mente blindada y consistencia, ningún método ha funcionado en la historia. Buscar la superación cada día.' },
+        { icon: "🎯", title: "Objetivos claros", text: 'Definir metas específicas dirige tu energía de manera focalizada y acelera el progreso. La claridad es el mapa al éxito.' },
+        { icon: "✂️", title: '"O menos é mais"', text: 'En la simplicidad reside la eficacia. Eliminar el exceso de complejidad simplifica el camino a resultados duraderos.' },
+      ],
+    },
+    training: {
+      title: "Entrenamiento",
+      icon: "💪",
+      blurb: 'Del módulo "O Treino Espartano" — lecciones de Empurrar, Puxar y Core.',
+      items: [
+        { icon: "📅", title: "Frecuencia: 2×/semana", text: 'Cada grupo muscular se entrena 2 veces por semana para máximos resultados (lección PUXAR).' },
+        { icon: "📊", title: "Volumen: 8-15 series/sem", text: 'Sumando TODAS las variantes del patrón (push, pull, etc), depende de tu nivel de esfuerzo.' },
+        { icon: "🎯", title: "Máximo 5 variantes", text: 'Por patrón (empuje, tirón, etc) por rutina — más es contraproducente.' },
+        { icon: "🔥", title: "Cerca del fallo", text: '"Próximo da falha" en cada serie. Calidad de activación + variantes desafiantes.' },
+        { icon: "🌀", title: "Core: 3-6 variantes", text: 'Al menos 1 ejercicio de core en cada entrenamiento, o un día solo de core. Foco isométricos + respiración + contracción.' },
+        { icon: "🏞️", title: "Sin barra en plaza", text: 'Si no tenés acceso a barra fija: 3 ejercicios × 3 series por grupo, próximo a la falla.' },
+      ],
+    },
+    foundation: {
+      title: "Base + Lesiones",
+      icon: "🛡️",
+      blurb: 'Del módulo "A Base da Fundação" — preparar el cuerpo antes de cargar.',
+      items: [
+        { icon: "🦴", title: "Escápulas de titanio", text: 'Las escápulas son base de movimientos eficientes: estabilidad y amplitud. Fortalecer y alinear conscientemente para blindar contra lesiones.' },
+        { icon: "✊", title: "Puños de acero", text: 'Las muñecas controlan el movimiento, soportan tu peso y mantienen la forma. Fortalecerlas previene lesiones — sobre todo en handstand, planche, fondos.' },
+        { icon: "💎", title: "Core de hierro", text: 'Abdominales + lumbares + pélvicos. Crucial para salud de columna, postura, prevención de lesiones, y rendimiento en cualquier movimiento.' },
+        { icon: "🏛️", title: "Como un templo griego", text: 'Tu físico necesita una buena base para sostener todos los músculos y tejidos. Sin base sólida, los entrenamientos intensos generan dolores y lesiones.' },
+      ],
+    },
+    recovery: {
+      title: "Recuperación",
+      icon: "💤",
+      blurb: 'Del módulo "Corpo Saudável" — descanso, alimentación, movilidad.',
+      items: [
+        { icon: "🧘", title: "Movilidad ≠ alongamiento", text: 'Tienen propósitos diferentes. Ambos blindan el cuerpo y previenen lesiones. Practicar antes de entrenamientos intensos.' },
+        { icon: "😴", title: "Descanso = reparación", text: 'Durante el sueño el cuerpo realiza procesos de reparación y regeneración fundamentales para el rendimiento. Sin descanso, no hay progreso.' },
+        { icon: "🥩", title: "Alimentación equilibrada", text: 'Proteínas + carbos complejos + vitaminas + minerales. Combinación adecuada de nutrición + descanso optimiza la eficiencia de los entrenamientos.' },
+        { icon: "🔥", title: "Metabolismo natural", text: 'Quemás calorías eficiente con: ejercicio regular + dieta balanceada (rica en nutrientes y fibras) + buen sueño.' },
+      ],
+    },
+  },
+
+  // Resumen ultra-condensado para mostrar arriba (los 6 más accionables)
   principles: [
-    { icon: "📅", title: "Frecuencia", text: "2× por semana cada grupo muscular para máximos resultados" },
-    { icon: "📊", title: "Volumen", text: "8 a 15 series semanales por grupo (sumando variantes)" },
-    { icon: "🎯", title: "Variantes", text: "Máximo 5 variaciones del mismo patrón por rutina" },
+    { icon: "📅", title: "Frecuencia", text: "2× por semana cada grupo muscular" },
+    { icon: "📊", title: "Volumen", text: "8 a 15 series semanales por grupo (todas las variantes)" },
+    { icon: "🎯", title: "Variantes", text: "Máximo 5 del mismo patrón por rutina" },
     { icon: "🔥", title: "Intensidad", text: "Cerca del fallo muscular en cada serie" },
-    { icon: "✨", title: "Calidad", text: "Foco en activación del músculo + variantes desafiantes" },
-    { icon: "🏞️", title: "Sin barra", text: "Si la plaza no tiene barra: 3 ejercicios × 3 series" },
+    { icon: "✨", title: "Calidad", text: "Foco en activación + variantes desafiantes" },
+    { icon: "🏞️", title: "Sin barra", text: "3 ejercicios × 3 series por grupo en la plaza" },
   ],
 
   // Mapeo nombre español → archivo de imagen oficial Sparta (en /img/)

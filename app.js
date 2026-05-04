@@ -268,10 +268,39 @@ document.getElementById("reset-btn").addEventListener("click", () => {
   );
 });
 
+let activeKnTab = "training";
+
+function renderKnowledgeTabs() {
+  const tabs = document.getElementById("kn-tabs");
+  if (!tabs || !PLAN.knowledge) return;
+  const order = ["mind", "training", "foundation", "recovery"];
+  tabs.innerHTML = order
+    .map((key) => {
+      const k = PLAN.knowledge[key];
+      const active = key === activeKnTab ? " active" : "";
+      return `<button class="kn-tab${active}" data-tab="${key}">${k.icon} ${k.title}</button>`;
+    })
+    .join("");
+  tabs.querySelectorAll(".kn-tab").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      activeKnTab = btn.dataset.tab;
+      renderKnowledgeTabs();
+      renderPrinciples();
+    });
+  });
+}
+
 function renderPrinciples() {
   const grid = document.getElementById("principles-grid");
-  if (!grid || !PLAN.principles) return;
-  grid.innerHTML = PLAN.principles
+  const blurb = document.getElementById("kn-blurb");
+  if (!grid) return;
+
+  // Prefer knowledge categories; fall back to flat principles array.
+  const cat = PLAN.knowledge && PLAN.knowledge[activeKnTab];
+  const items = cat ? cat.items : PLAN.principles || [];
+  if (blurb) blurb.textContent = cat ? cat.blurb : "";
+
+  grid.innerHTML = items
     .map(
       (p) => `
         <div class="principle">
@@ -287,6 +316,7 @@ function renderPrinciples() {
 }
 
 // ─── Init ───
+renderKnowledgeTabs();
 renderPrinciples();
 renderTabs();
 renderWeek();
