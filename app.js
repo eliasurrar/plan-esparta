@@ -146,9 +146,14 @@ function renderWeek() {
       .map((ex, idx) => {
         const checked = isExDone(week.id, day.id, idx);
         const yt = youtubeSearchUrl(ex.name);
+        const img = exerciseImage(ex.name);
+        const thumbHtml = img
+          ? `<img class="ex-thumb" src="${img.src}" alt="${ex.name}" loading="lazy" title="${img.pt}"/>`
+          : `<div class="ex-thumb ex-thumb--placeholder" title="${ex.name}">${day.emoji}</div>`;
         return `
           <li class="exercise${checked ? " checked" : ""}" data-idx="${idx}">
             <input type="checkbox" ${checked ? "checked" : ""} aria-label="${ex.name} hecho"/>
+            ${thumbHtml}
             <div class="ex-info">
               <span class="ex-name">${ex.name}</span>
               <span class="ex-meta">${ex.sets} × ${ex.reps}</span>
@@ -263,7 +268,26 @@ document.getElementById("reset-btn").addEventListener("click", () => {
   );
 });
 
+function renderPrinciples() {
+  const grid = document.getElementById("principles-grid");
+  if (!grid || !PLAN.principles) return;
+  grid.innerHTML = PLAN.principles
+    .map(
+      (p) => `
+        <div class="principle">
+          <div class="principle-icon">${p.icon}</div>
+          <div class="principle-body">
+            <div class="principle-title">${p.title}</div>
+            <div class="principle-text">${p.text}</div>
+          </div>
+        </div>
+      `,
+    )
+    .join("");
+}
+
 // ─── Init ───
+renderPrinciples();
 renderTabs();
 renderWeek();
 renderOverall();

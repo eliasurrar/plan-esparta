@@ -1,17 +1,98 @@
 // Plan Esparta personalizado para Elias — 4 días/semana × 3 semanas
 // Foco: calistenia con barras de plaza, 1-2 grupos musculares por día, mínima repetición.
-// Cada ejercicio tiene un cue técnico breve y un link a búsqueda de YouTube.
+// Imágenes oficiales del Método Sparta (Floripa Calistenia, Kiwify) descargadas a /img/.
+// Principios extraídos directamente de las lecciones "O TREINO ESPARTANO".
 
 const PLAN = {
   meta: {
     title: "Plan Esparta — Elias",
     subtitle: "Calistenia en barras de plaza · 4 días/semana · 3 semanas",
-    legend: {
-      "🟦": "Semana 1 · Adaptación + volumen",
-      "🟩": "Semana 2 · Potencia + técnica",
-      "🟨": "Semana 3 · Skills + intensidad",
-    },
+    source: "Personalizado a partir del Método Sparta (Floripa Calistenia)",
   },
+
+  // Principios extraídos del módulo "O TREINO ESPARTANO" (lecciones EMPURRAR + PUXAR):
+  // - Frecuencia: 2x/semana por grupo muscular para mejores resultados
+  // - Volumen: 8 a 15 series semanales por grupo (sumando todas las variaciones)
+  // - Variantes: máximo 5 variaciones del mismo patrón por rutina
+  // - Intensidad: cerca del fallo muscular ("próximo da falha")
+  // - Calidad sobre cantidad: foco en activación + variantes desafiantes
+  // - Sin barra: 3 ejercicios × 3 series por grupo
+  principles: [
+    { icon: "📅", title: "Frecuencia", text: "2× por semana cada grupo muscular para máximos resultados" },
+    { icon: "📊", title: "Volumen", text: "8 a 15 series semanales por grupo (sumando variantes)" },
+    { icon: "🎯", title: "Variantes", text: "Máximo 5 variaciones del mismo patrón por rutina" },
+    { icon: "🔥", title: "Intensidad", text: "Cerca del fallo muscular en cada serie" },
+    { icon: "✨", title: "Calidad", text: "Foco en activación del músculo + variantes desafiantes" },
+    { icon: "🏞️", title: "Sin barra", text: "Si la plaza no tiene barra: 3 ejercicios × 3 series" },
+  ],
+
+  // Mapeo nombre español → archivo de imagen oficial Sparta (en /img/)
+  // y nombre original portugués (referencia al curso). Los ejercicios sin
+  // imagen oficial caen al fallback de YouTube search.
+  images: {
+    "Flexiones militares":          { file: "flexao-militar.jpg",            pt: "Flexão Militar" },
+    "Flexiones diamante":           { file: "flexao-diamante.jpg",           pt: "Flexão Diamante" },
+    "Flexiones declinadas":         { file: "flexao-declinada.jpg",          pt: "Flexão Declinada" },
+    "Flexiones hindú":              { file: "flexao-hindu.jpg",              pt: "Flexão Hindu" },
+    "Flexiones explosivas":         { file: "flexao-explosiva.jpg",          pt: "Flexão Explosiva" },
+    "Flexiones arquero":            { file: "flexao-arqueiro.jpg",           pt: "Flexão Arqueiro" },
+    "Flexiones arquero unilateral": { file: "flexao-arqueiro.jpg",           pt: "Flexão Arqueiro" },
+    "Flexiones abre y cierra":      { file: "flexao-abre-e-fecha.jpg",       pt: "Flexão Abre e Fecha" },
+    "Pike push-up":                 { file: "flexao-pike.jpg",               pt: "Flexão Pike" },
+    "Pike push-up elevadas":        { file: "pike-elevada.jpg",              pt: "Pike Elevada" },
+    "Pseudo planche push-up":       { file: "pseudo-planche-push-ups.jpg",   pt: "Pseudo Planche Push-Ups" },
+    "Planche lean":                 { file: "planche-lean.jpg",              pt: "Planche Lean" },
+    "Planche lean (progresión)":    { file: "planche-lean.jpg",              pt: "Planche Lean" },
+    "Planche lean (intensidad)":    { file: "planche-lean.jpg",              pt: "Planche Lean" },
+    "Fondos en paralelas":          { file: "dips-na-barra-reta.jpg",        pt: "Dips na Barra Reta (variante)" },
+    "Fondos en barra recta":        { file: "dips-na-barra-reta.jpg",        pt: "Dips na Barra Reta" },
+    "Fondos profundos en paralelas":{ file: "dips-na-barra-reta.jpg",        pt: "Dips na Barra Reta (profundo)" },
+    "Plancha isométrica":           { file: "prancha-isometrica.jpg",        pt: "Prancha Isométrica" },
+    "Plancha invertida":            { file: "prancha-invertida.jpg",         pt: "Prancha Invertida" },
+    "Shoulder tap":                 { file: "shoulder-tap.jpg",              pt: "Shoulder Tap" },
+    "Shoulder tap lento":           { file: "shoulder-tap.jpg",              pt: "Shoulder Tap (lento)" },
+    "Shoulder tap avanzado":        { file: "shoulder-tap.jpg",              pt: "Shoulder Tap (avanzado)" },
+    "Hollow body hold":             { file: "canoinha-hollow-body.jpg",      pt: "Canoinha (hollow body)" },
+    "Abdominal escalador":          { file: "abdominal-escalador.jpg",       pt: "Abdominal Escalador" },
+
+    "Dominadas pronas":             { file: "barra-fixa-pull-up.jpg",        pt: "Barra Fixa - Pull Up" },
+    "Dominadas estrictas":          { file: "barra-fixa-pull-up.jpg",        pt: "Barra Fixa - Pull Up (estricta)" },
+    "Dominadas supinas (chin-up)":  { file: "barra-fixa-pull-up.jpg",        pt: "Barra Fixa - Pull Up (chin-up)" },
+    "Barra explosiva":              { file: "barra-explosiva.jpg",           pt: "Barra Explosiva" },
+    "Remo australiano":             { file: "remada-com-cadeira.jpg",        pt: "Remada com Cadeira (similar)" },
+    "Remada no L":                  { file: "remada-no-l-front-lever.jpg",   pt: "Remada no L (front lever)" },
+    "Remada no L (front lever row)":{ file: "remada-no-l-front-lever.jpg",   pt: "Remada no L (front lever)" },
+    "Puxada no chão":               { file: "puxada-no-chao.jpg",            pt: "Puxada no Chão" },
+    "Reverse deadlift":             { file: "reverse-deadlift.jpg",          pt: "Reverse Deadlift" },
+    "Leg raise colgado":            { file: "leg-raise.jpg",                 pt: "Leg Raise" },
+    "Leg raise lento":              { file: "leg-raise.jpg",                 pt: "Leg Raise (lento)" },
+    "Toes to bar":                  { file: "toes-to-bar.jpg",               pt: "Toes To Bar" },
+    "Front lever tuck raise":       { file: "front-lever-tuck-raise.jpg",    pt: "Front Lever Tuck Raise" },
+    "Front lever advanced tuck hold":{ file: "front-lever-advanced-tuck.jpg",pt: "Front Lever Advanced Tuck" },
+    "Front lever raises":           { file: "front-lever-raises.jpg",        pt: "Front Lever Raises" },
+
+    "Sentadilla estándar":          { file: "agachamento-padrao.jpg",        pt: "Agachamento (padrão)" },
+    "Sentadilla sumo":              { file: "agachamento-sumo.jpg",          pt: "Agachamento Sumo" },
+    "Sentadilla isométrica":        { file: "agachamento-isometrico.jpg",    pt: "Agachamento Isométrico" },
+    "Búlgaro profundo":             { file: "bulgaro-a-fundo.jpg",           pt: "Búlgaro - A Fundo" },
+    "Búlgaro a fondo":              { file: "bulgaro-a-fundo.jpg",           pt: "Búlgaro - A Fundo" },
+    "Búlgaro alternado explosivo":  { file: "bulgaro-alternado-explosivo.jpg",pt: "Búlgaro Alternado (Explosivo)" },
+    "Cossack squat":                { file: "cossack-squat.jpg",             pt: "Cossack Squat" },
+    "Pistol squat asistido":        { file: "pistol-squat-assistido.jpg",    pt: "Pistol Squat Assistido" },
+    "Pistol squat libre":           { file: "pistol-squat.jpg",              pt: "Pistol Squat" },
+    "Sissy squat":                  { file: "sissy-squat.jpg",               pt: "Sissy Squat" },
+    "Stiff unilateral":             { file: "stiff-unilateral.jpg",          pt: "Stiff Unilateral" },
+    "Glute bridge":                 { file: "extensao-de-quadril.jpg",       pt: "Extensão de Quadril" },
+    "Glute bridge unilateral":      { file: "extensao-de-quadril-unilateral.jpg",pt: "Extensão de Quadril Unilateral" },
+    "Coice glúteos (donkey kick)":  { file: "coice-gluteos.jpg",             pt: "Coice Glúteos" },
+    "Pantorrilla unilateral":       { file: "panturrilha-unilateral.jpg",    pt: "Panturrilha Unilateral" },
+    "Saltos de pantorrilla":        { file: "saltos-panturrilha.jpg",        pt: "Saltos Panturrilha" },
+    "Agachamento con salto":        { file: "agachamento-com-salto.jpg",     pt: "Agachamento com Salto" },
+
+    // Sin imagen oficial — fallback YouTube
+    "Flagpole": null,
+  },
+
   weeks: [
     {
       id: "S1",
@@ -220,8 +301,13 @@ const PLAN = {
   ],
 };
 
-// YouTube search helper for a given exercise name
 function youtubeSearchUrl(name) {
   const q = `${name} calistenia tutorial`.replace(/\s+/g, "+");
   return `https://www.youtube.com/results?search_query=${q}`;
+}
+
+function exerciseImage(name) {
+  const meta = PLAN.images[name];
+  if (!meta || !meta.file) return null;
+  return { src: `./img/${meta.file}`, pt: meta.pt };
 }
