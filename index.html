@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Plan Esparta — Elias</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='62' font-size='64' text-anchor='middle'%3E🏛️%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>🏛️ Plan Esparta</h1>
+        <p class="tagline">Calistenia en barras de plaza · 4 días/sem · 3 semanas</p>
+        <div class="overall">
+          <div class="overall-bar"><div id="overall-fill" class="overall-fill"></div></div>
+          <span id="overall-label" class="overall-label">0 / 0 ejercicios</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="week-tabs" id="week-tabs" aria-label="Semanas"></nav>
+
+    <main id="app"></main>
+
+    <footer class="footer">
+      <button id="reset-btn" class="reset-btn" type="button">↺ Resetear progreso</button>
+      <p class="footer-note">
+        Tu progreso se guarda en este dispositivo (localStorage). El plan está versionado en
+        <a href="https://github.com/eliasurrar/plan-esparta" target="_blank" rel="noopener">GitHub</a>.
+      </p>
+    </footer>
+
+    <dialog id="confirm-dialog">
+      <form method="dialog" class="confirm-box">
+        <h3>¿Resetear todo el progreso?</h3>
+        <p>Esto desmarcará todos los ejercicios y días. No se puede deshacer.</p>
+        <menu>
+          <button type="submit" value="cancel" class="btn-secondary">Cancelar</button>
+          <button type="submit" value="confirm" class="btn-danger">Sí, resetear</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
