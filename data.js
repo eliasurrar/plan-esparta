@@ -89,6 +89,21 @@ const PLAN = {
     "Saltos de pantorrilla":        { file: "saltos-panturrilha.jpg",        pt: "Saltos Panturrilha" },
     "Agachamento con salto":        { file: "agachamento-com-salto.jpg",     pt: "Agachamento com Salto" },
 
+    // ─── Complementos (skills + parallettes + bandas + anillas) ───
+    // Algunos usan thumbnail oficial Sparta de módulos relacionados; el resto cae a placeholder.
+    "Tuck planche en suelo":             { file: "punhos-sparta.jpg",          pt: "Tuck Planche (skill — Punhos de Aço)" },
+    "Anillas - Ring rows":               null,
+    "Pistol squat asistido con banda":   { file: "pernas-sparta.jpg",          pt: "Pistol Squat (banda — Treino de Pernas)" },
+    "Dragon flag tuck":                  { file: "core-ferro-sparta.jpg",      pt: "Dragon Flag tuck (Core de Ferro)" },
+    "Anillas/parallettes push-ups":      { file: "punhos-sparta.jpg",          pt: "Push-up en accesorios (Punhos de Aço)" },
+    "Human flag tuck hold":              null,
+    "Banded glute bridge":               { file: "gluteos-sparta.jpg",         pt: "Glute bridge con banda (Glúteos em Casa)" },
+    "L-sit en parallettes":              { file: "lsit-sparta.jpg",            pt: "L-Sit (Dicas do L-Sit)" },
+    "Wall walk → handstand contra pared":{ file: "escapulas-sparta.jpg",       pt: "Handstand prep (Escápulas de Titânio)" },
+    "Anillas - Muscle up negativos":     { file: "muscleup-sparta.jpg",        pt: "Muscle Up (Dicas para o Muscle Up)" },
+    "Shrimp squat asistido":             { file: "pernas-sparta.jpg",          pt: "Shrimp Squat (Treino de Pernas)" },
+    "Dragon flag completo":              { file: "core-ferro-sparta.jpg",      pt: "Dragon Flag completo (Core de Ferro)" },
+
     // Sin imagen oficial — fallback YouTube
     "Flagpole": null,
   },
@@ -113,6 +128,7 @@ const PLAN = {
             { name: "Flexiones declinadas", sets: 3, reps: "10", cue: "Pies elevados (banco/escalón), foco pecho alto." },
             { name: "Flexiones hindú", sets: 3, reps: "10", cue: "Movimiento de yoga: bajada perro mirando abajo → cobra." },
             { name: "Plancha isométrica", sets: 3, reps: "45 s", cue: "Cuerpo recto, glúteos activos, mirada al suelo." },
+            { name: "Tuck planche en suelo", sets: 4, reps: "15 s", cue: "Skill empuje: rodillas pegadas al pecho, pies despegan, peso adelante." },
           ],
         },
         {
@@ -128,6 +144,7 @@ const PLAN = {
             { name: "Puxada no chão", sets: 3, reps: "10", cue: "Tirada en el suelo: tracciona con codos pegados al cuerpo." },
             { name: "Reverse deadlift", sets: 3, reps: "8", cue: "Cadena posterior: bisagra de cadera con piernas casi rectas." },
             { name: "Leg raise colgado", sets: 3, reps: "12", cue: "No columpies, sube piernas con control, baja lento." },
+            { name: "Anillas - Ring rows", sets: 4, reps: "10", cue: "En argollas (o TRX): cuerpo recto, tira al pecho, codos pegados." },
           ],
         },
         {
@@ -143,6 +160,7 @@ const PLAN = {
             { name: "Glute bridge", sets: 4, reps: "15", cue: "Acuesta de espalda, eleva cadera apretando glúteos arriba." },
             { name: "Pantorrilla unilateral", sets: 3, reps: "20 c/pie", cue: "Una pierna, sube en máxima punta, baja completo." },
             { name: "Sentadilla isométrica", sets: 2, reps: "30 s", cue: "Espalda contra pared, muslos paralelos al suelo." },
+            { name: "Pistol squat asistido con banda", sets: 3, reps: "6 c/pierna", cue: "Banda elástica colgando arriba como asistencia para bajar a pistol." },
           ],
         },
         {
@@ -158,6 +176,7 @@ const PLAN = {
             { name: "Shoulder tap", sets: 3, reps: "40 s", cue: "Plancha alta, toca hombro contrario sin rotar caderas." },
             { name: "Hollow body hold", sets: 3, reps: "30 s", cue: "Acostado, lumbar contra el suelo, brazos y piernas elevados." },
             { name: "Toes to bar", sets: 3, reps: "8", cue: "Colgado, lleva puntas a la barra sin balancearte." },
+            { name: "Dragon flag tuck", sets: 3, reps: "8", cue: "Acostado, agarra algo arriba, eleva cuerpo y baja lento (rodillas tucked)." },
           ],
         },
       ],
@@ -181,6 +200,7 @@ const PLAN = {
             { name: "Flexiones abre y cierra", sets: 3, reps: "16", cue: "Alterna manos anchas y manos juntas en cada repetición." },
             { name: "Pike push-up elevadas", sets: 3, reps: "6", cue: "Pies sobre banco/escalón, simula HSPU progresivo." },
             { name: "Plancha invertida", sets: 3, reps: "45 s", cue: "Sentado, manos atrás, eleva cadera y forma línea recta." },
+            { name: "Anillas/parallettes push-ups", sets: 4, reps: "8", cue: "En argollas o mini-paralelas: inestable, fuerza estabilizadora extra." },
           ],
         },
         {
@@ -196,6 +216,7 @@ const PLAN = {
             { name: "Front lever tuck raise", sets: 3, reps: "6", cue: "Colgado, eleva piernas en tuck hasta horizontal, controla bajada." },
             { name: "Leg raise lento", sets: 3, reps: "10", cue: "Mismo movimiento, pero sube/baja en 3-4 s cada fase." },
             { name: "Flagpole", sets: 3, reps: "20 s", cue: "Cuerpo lateral a la barra vertical — dificultad alta, progresá." },
+            { name: "Human flag tuck hold", sets: 3, reps: "15 s", cue: "Barra vertical, agarre alto+bajo, eleva cuerpo lateral con rodillas tucked." },
           ],
         },
         {
@@ -211,6 +232,7 @@ const PLAN = {
             { name: "Stiff unilateral", sets: 3, reps: "10 c/pierna", cue: "Una pierna apoyada, otra atrás recta, bisagra de cadera." },
             { name: "Saltos de pantorrilla", sets: 3, reps: "20", cue: "Salto pequeño usando solo el tobillo, mínimo doblar rodilla." },
             { name: "Glute bridge unilateral", sets: 3, reps: "12 c/pierna", cue: "Una pierna apoyada, otra estirada, sube con glúteo." },
+            { name: "Banded glute bridge", sets: 3, reps: "15", cue: "Banda elástica alrededor de las rodillas, abre afuera mientras subís." },
           ],
         },
         {
@@ -226,6 +248,7 @@ const PLAN = {
             { name: "Shoulder tap lento", sets: 3, reps: "45 s", cue: "Pausa 1 s en cada toque, control sobre velocidad." },
             { name: "Abdominal escalador", sets: 3, reps: "35 s", cue: "Plancha alta, lleva rodillas al pecho alternadas con ritmo." },
             { name: "Front lever advanced tuck hold", sets: 3, reps: "20 s", cue: "Tuck más abierto que tuck básico — escápulas activas." },
+            { name: "L-sit en parallettes", sets: 4, reps: "15 s", cue: "Mini-paralelas (o banco): brazos rectos, piernas estiradas paralelas al suelo." },
           ],
         },
       ],
@@ -249,6 +272,7 @@ const PLAN = {
             { name: "Flexiones arquero unilateral", sets: 3, reps: "8 c/lado", cue: "Acerca el peso al brazo flexionado, otro brazo recto." },
             { name: "Planche lean (intensidad)", sets: 4, reps: "40 s", cue: "Máxima inclinación que aún aguantes 40s — semanas progresan." },
             { name: "Plancha isométrica", sets: 3, reps: "75 s", cue: "Forma estricta o cortá la serie." },
+            { name: "Wall walk → handstand contra pared", sets: 3, reps: "3", cue: "Sube de plancha hasta tocar la pared con el pecho, sostené 10s arriba." },
           ],
         },
         {
@@ -264,6 +288,7 @@ const PLAN = {
             { name: "Reverse deadlift", sets: 4, reps: "8", cue: "Bisagra de cadera con cadena posterior tensa." },
             { name: "Toes to bar", sets: 4, reps: "10", cue: "Sin balanceo, control en bajada, mantené hollow." },
             { name: "Leg raise lento", sets: 3, reps: "12", cue: "Tempo 3-1-3 (3s subir, 1 pausa, 3s bajar)." },
+            { name: "Anillas - Muscle up negativos", sets: 3, reps: "3", cue: "Desde apoyo arriba en anillas, baja LENTO controlado a la posición de pull." },
           ],
         },
         {
@@ -279,6 +304,7 @@ const PLAN = {
             { name: "Agachamento con salto", sets: 3, reps: "12", cue: "Sentadilla con salto vertical máximo, aterriza suave." },
             { name: "Pantorrilla unilateral", sets: 4, reps: "22 c/pie", cue: "Misma forma, pero más reps y máxima amplitud." },
             { name: "Sentadilla isométrica", sets: 3, reps: "40 s", cue: "Pared o aire, muslos paralelos, no descanses sobre rodillas." },
+            { name: "Shrimp squat asistido", sets: 3, reps: "5 c/pierna", cue: "Una pierna agarrada atrás, baja hasta que la rodilla atrás toque el suelo." },
           ],
         },
         {
@@ -294,6 +320,7 @@ const PLAN = {
             { name: "Plancha isométrica", sets: 3, reps: "90 s", cue: "Si bajás cadera, cortá la serie y reseteá." },
             { name: "Plancha invertida", sets: 3, reps: "60 s", cue: "Cuerpo recto, glúteos activos, mira al techo." },
             { name: "Coice glúteos (donkey kick)", sets: 3, reps: "15 c/pierna", cue: "Cuatro apoyos, lleva talón al techo apretando glúteo." },
+            { name: "Dragon flag completo", sets: 3, reps: "6", cue: "Skill final: cuerpo recto desde hombros a pies, baja en 3 s sin tocar." },
           ],
         },
       ],
